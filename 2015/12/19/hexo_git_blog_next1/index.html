@@ -1,0 +1,729 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="教程,hexo,NexT,blog," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="〇 前言这几天在网上搜索了下,但没有找到一篇教程能让新手从零开始搭建一个完整的NexT主题博客.同时觉得自己也应该尝试记录点东西,无论是加深印象或是日后查找或是学习语言组织,都或多或少是有点好处的.因此花了一个晚上的时间写了这篇教程.
+简单地说下原理:利用hexo将本地的生成的博客内容部署至github代码仓库,再由github自动布局远程页面.   
+至于为什么要使用github,除了一丁点比格">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建github博客(NexT主题)(一)">
+<meta property="og:url" content="http://yoursite.com/2015/12/19/hexo_git_blog_next1/index.html">
+<meta property="og:site_name" content="八月份的前奏">
+<meta property="og:description" content="〇 前言这几天在网上搜索了下,但没有找到一篇教程能让新手从零开始搭建一个完整的NexT主题博客.同时觉得自己也应该尝试记录点东西,无论是加深印象或是日后查找或是学习语言组织,都或多或少是有点好处的.因此花了一个晚上的时间写了这篇教程.
+简单地说下原理:利用hexo将本地的生成的博客内容部署至github代码仓库,再由github自动布局远程页面.   
+至于为什么要使用github,除了一丁点比格">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-2.png">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-3.png">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-4.png">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-5.png">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-6.png">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-6.1.png">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-7.png">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151219-8.png">
+<meta property="og:updated_time" content="2016-08-05T06:59:28.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo搭建github博客(NexT主题)(一)">
+<meta name="twitter:description" content="〇 前言这几天在网上搜索了下,但没有找到一篇教程能让新手从零开始搭建一个完整的NexT主题博客.同时觉得自己也应该尝试记录点东西,无论是加深印象或是日后查找或是学习语言组织,都或多或少是有点好处的.因此花了一个晚上的时间写了这篇教程.
+简单地说下原理:利用hexo将本地的生成的博客内容部署至github代码仓库,再由github自动布局远程页面.   
+至于为什么要使用github,除了一丁点比格">
+<meta name="twitter:image" content="http://yoursite.com/images/QQ20151219-2.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/12/19/hexo_git_blog_next1/"/>
+
+  <title> hexo搭建github博客(NexT主题)(一) | 八月份的前奏 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">八月份的前奏</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">曾经沧海难为水，除却巫山不是云</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                hexo搭建github博客(NexT主题)(一)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-19T22:30:00+08:00" content="2015-12-19">
+              2015-12-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/软件及网络应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件及网络应用</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="〇-前言"><a href="#〇-前言" class="headerlink" title="〇 前言"></a>〇 前言</h4><p>这几天在网上搜索了下,但没有找到一篇教程能让新手从零开始搭建一个完整的NexT主题博客.<br>同时觉得自己也应该尝试记录点东西,无论是加深印象或是日后查找或是学习语言组织,都或多或少是有点好处的.<br>因此花了一个晚上的时间写了这篇教程.</p>
+<p>简单地说下原理:利用hexo将本地的生成的博客内容部署至github代码仓库,再由github自动布局远程页面.   </p>
+<p>至于为什么要使用github,除了一丁点比格外,最主要的是免费(几年前是每个仓库有300M的免费空间,<a href="https://help.github.com/articles/what-is-my-disk-quota/" target="_blank" rel="external">现在貌似没有明确限制</a>).  </p>
+<p>所以开始吧!<br><a id="more"></a> </p>
+<h4 id="一-注册gitHub账号，进入gitHub官网-完成图示流程"><a href="#一-注册gitHub账号，进入gitHub官网-完成图示流程" class="headerlink" title="一. 注册gitHub账号，进入gitHub官网,完成图示流程"></a>一. 注册gitHub账号，进入<a href="https://github.com/" target="_blank" rel="external">gitHub官网</a>,完成图示流程</h4><ol>
+<li>点击<br><img src="/images/QQ20151219-2.png" alt="">  </li>
+<li>填写账号(我的是yangzongjie),邮箱,密码    </li>
+<li>Chosen Free,Fish sigh up<br><img src="/images/QQ20151219-3.png" alt="">  </li>
+</ol>
+<h4 id="二-登陆邮箱-验证账号"><a href="#二-登陆邮箱-验证账号" class="headerlink" title="二 登陆邮箱,验证账号"></a>二 登陆邮箱,验证账号</h4><h4 id="三-gitHub创建仓库（creat-repository）"><a href="#三-gitHub创建仓库（creat-repository）" class="headerlink" title="三 gitHub创建仓库（creat repository）"></a>三 gitHub创建仓库（creat repository）</h4><ol>
+<li>点击页面右上角“+”，选择“creat repository”<br><img src="/images/QQ20151219-4.png" alt="">  </li>
+<li>填写Repository name，格式为“yangzongjie.github.io”；点击Creat repository.<br><img src="/images/QQ20151219-5.png" alt="">     </li>
+<li>进入 <code>https://github.com/yangzongjie/yangzongjie.github.io</code><br>点击Settings<br><img src="/images/QQ20151219-6.png" alt="">      </li>
+<li>将页面拉到底部，点击”Launch automatic page generator”<br><img src="/images/QQ20151219-6.1.png" alt="">    </li>
+<li>点击Continue to layouts<br><img src="/images/QQ20151219-7.png" alt="">  </li>
+<li>点击Publish page<br><img src="/images/QQ20151219-8.png" alt="">  </li>
+</ol>
+<h4 id="四-安装Homebrew-Node-js，Git"><a href="#四-安装Homebrew-Node-js，Git" class="headerlink" title="四 安装Homebrew ,Node.js，Git"></a>四 安装Homebrew ,Node.js，Git</h4><ol>
+<li>切换为RubyGems 镜像源为<a href="https://ruby.taobao.org/" target="_blank" rel="external">淘宝</a>。   </li>
+</ol>
+<pre><code>$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+$ gem sources -l
+*** CURRENT SOURCES ***
+
+https://ruby.taobao.org
+
+$ gem install rails  
+</code></pre><ol>
+<li><p>安装Homebrew  </p>
+<pre><code>$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;  
+</code></pre></li>
+<li><p>homebrew安装git(若装有xcode，则跳过该步骤)  </p>
+<pre><code>$ brew install git  
+</code></pre></li>
+<li><p>homebrew安装Node.js  </p>
+<pre><code>$ brew install node    
+</code></pre></li>
+</ol>
+<blockquote>
+<p>若出现编译问题，建议安装Xcode，启动并进入 Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install 安装命令行工具  </p>
+</blockquote>
+<h4 id="五-生成git-ssh-key"><a href="#五-生成git-ssh-key" class="headerlink" title="五 生成git ssh key"></a>五 生成git ssh key</h4><ol>
+<li><p>打开终端，配置用户名，邮箱   </p>
+<pre><code>$ git config --global user.name &quot;yangzongjie&quot;  
+$ git config --global user.email &quot;340244120@qq.com&quot;    
+</code></pre></li>
+<li><p>删除旧ssh key （第一次配置ssh则跳过该步骤) </p>
+<pre><code>$ cd ~
+$ sudo rm .ssh -r -f  
+</code></pre></li>
+<li><p>生成key  </p>
+<pre><code>$ ssh-keygen -t rsa -C “340244120@qq.com”    
+</code></pre><p><strong>连续按3个回车</strong>  </p>
+</li>
+<li><p>将生成的key写入本地文件  </p>
+<pre><code>$ ssh-add id_rsa.pub   
+</code></pre></li>
+<li><p>拷贝key，并贴入gitHub<br>打开finder，按下command+shift+G,输入~/.ssh 回车，生成key即保存在id_rsa.pub。<br>右键用“文本编辑”打开 id_rsa.pub。将里面文字（类似ssh-rsa AAAAB3NzaC1yc…）全部复制。<br>打开<a href="https://github.com/settings/ssh" target="_blank" rel="external">https://github.com/settings/ssh</a> 设置gitSSHKey<br>点击add SSH key;在Key里粘贴之前复制的key。（Title任填） </p>
+</li>
+<li><p>验证添加key是否成功 </p>
+<pre><code>$ ssh git@github.com  
+</code></pre><p>   若显示  </p>
+<pre><code>$ ssh git@github.com  
+    PTY allocation request failed on channel 0`   
+    Hi yangzongjie! You&apos;ve successfully authenticated, but GitHub does not provide shell access.`    
+    Connection to github.com closed.  
+</code></pre></li>
+</ol>
+<p>则OK.</p>
+<h4 id="六-安装Hexo"><a href="#六-安装Hexo" class="headerlink" title="六 安装Hexo"></a>六 安装Hexo</h4><p>1 进入安装文件夹 (如/Users/hijack/Develop/yangzongjie.github.io)  </p>
+<pre><code>$ cd /Users/hijack/Develop/yangzongjie.github.io 
+</code></pre><p>2 安装Hexo到当前目录  </p>
+<pre><code>$ npm install -g hexo-cli   
+$ hexo init         
+$ npm install      
+</code></pre><p>此时文件夹内目录日下<br>.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source （存放本地资源；子文件件_post用于存放文章.）<br>└── themes (存放主题)</p>
+<h4 id="七-安装NexT主题"><a href="#七-安装NexT主题" class="headerlink" title="七 安装NexT主题"></a>七 安装NexT主题</h4><ol>
+<li><p>下载主题(位于NexTG gitHub的pisces分支)  </p>
+<p>   $ cd /Users/hijack/Develop/yangzongjie.github.io<br>   $ git clone -b pisces <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">https://github.com/iissnan/hexo-theme-next</a> themes/next    </p>
+</li>
+<li><p>站点配置文件&amp;主题配置文件 （==冒号后面接空格==）  </p>
+<blockquote>
+<p>==站点配置文件==位于/Users/hijack/Develop/yangzongjie.github.io/_config.yml。<br>==主题配置文件==位于/Users/hijack/Develop/yangzongjie.github.io/themes/next/_config.yml。 </p>
+</blockquote>
+</li>
+<li><p>打开 <strong>站点配置文件</strong>（修改语言、主题等）<br>3.1 找到 theme 字段，并将其值更改为 next。（theme: next）<br>3.2 简体中文 language: zh-hans<br>3.3 设置头像： 在空白行增加avatar= <a href="https://头像地址" target="_blank" rel="external">https://头像地址</a><br>3.4 设置github连接 :找到 <em>#Deployment</em> ，修改为  </p>
+<pre><code># Deployment
+## Docs: http://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: git@github.com:yangzongjie/yangzongjie.github.io.git
+  branch: master
+  message:      
+</code></pre></li>
+</ol>
+<ol>
+<li><p>验证主题是否启用  </p>
+<p>  $ hexo s –debug    </p>
+<p>并访问 <a href="http://localhost:4000，确保站点正确运行。" target="_blank" rel="external">http://localhost:4000，确保站点正确运行。</a></p>
+<blockquote>
+<p>debug模式下，修改配置文件或博客内容时(command+s)，本地显示便即时更新（终端内安control+c退出debug）  </p>
+</blockquote>
+</li>
+<li><p>设置pisces主题<br><strong>主题配置</strong>文件中，将  </p>
+<pre><code># Schemes
+scheme: Muse
+#scheme: Mist
+#scheme: Pisces
+</code></pre><p>修改为  </p>
+<pre><code># Schemes
+#scheme: Muse
+#scheme: Mist
+scheme: Pisces
+</code></pre><blockquote>
+<p>Schemes为NexT的子主题，可以任意选择</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="八-将本地数据部署至gitHub-每次修改配置或内容后都需执行以下命令，更新博客"><a href="#八-将本地数据部署至gitHub-每次修改配置或内容后都需执行以下命令，更新博客" class="headerlink" title="八 将本地数据部署至gitHub  (每次修改配置或内容后都需执行以下命令，更新博客)"></a>八 将本地数据部署至gitHub  (每次修改配置或内容后都需执行以下命令，更新博客)</h4><pre><code>$ hexo clean   
+
+$ hexo generate -deploy  
+或者直接缩写
+$ hexo g -d 
+</code></pre><h4 id="九-进入yangzongjie-github-io就可以看到自己的博客啦！4不4SoEZ"><a href="#九-进入yangzongjie-github-io就可以看到自己的博客啦！4不4SoEZ" class="headerlink" title="九 进入yangzongjie.github.io就可以看到自己的博客啦！4不4SoEZ"></a>九 进入yangzongjie.github.io就可以看到自己的博客啦！4不4SoEZ</h4><p>下一篇介绍如何布局界面,以及发布文章.&gt;&gt;<a href="http://yangzongjie.github.io/2015/12/19/20151220-hexo%E5%8F%91%E8%A1%A8%E5%8D%9A%E6%96%87/" target="_blank" rel="external">点我…….</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag">#教程</a>
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+            <a href="/tags/NexT/" rel="tag">#NexT</a>
+          
+            <a href="/tags/blog/" rel="tag">#blog</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/19/chrismas_song/" rel="next" title="クリスマスソング">
+                <i class="fa fa-chevron-left"></i> クリスマスソング
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/20/hexo_git_blog_next2/" rel="prev" title="hexo搭建github博客(NexT主题)(二)">
+                hexo搭建github博客(NexT主题)(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/12136689?v=3&s=460"
+               alt="HiJack" />
+          <p class="site-author-name" itemprop="name">HiJack</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#〇-前言"><span class="nav-number">1.</span> <span class="nav-text">〇 前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一-注册gitHub账号，进入gitHub官网-完成图示流程"><span class="nav-number">2.</span> <span class="nav-text">一. 注册gitHub账号，进入gitHub官网,完成图示流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-登陆邮箱-验证账号"><span class="nav-number">3.</span> <span class="nav-text">二 登陆邮箱,验证账号</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-gitHub创建仓库（creat-repository）"><span class="nav-number">4.</span> <span class="nav-text">三 gitHub创建仓库（creat repository）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-安装Homebrew-Node-js，Git"><span class="nav-number">5.</span> <span class="nav-text">四 安装Homebrew ,Node.js，Git</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五-生成git-ssh-key"><span class="nav-number">6.</span> <span class="nav-text">五 生成git ssh key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#六-安装Hexo"><span class="nav-number">7.</span> <span class="nav-text">六 安装Hexo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#七-安装NexT主题"><span class="nav-number">8.</span> <span class="nav-text">七 安装NexT主题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#八-将本地数据部署至gitHub-每次修改配置或内容后都需执行以下命令，更新博客"><span class="nav-number">9.</span> <span class="nav-text">八 将本地数据部署至gitHub  (每次修改配置或内容后都需执行以下命令，更新博客)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#九-进入yangzongjie-github-io就可以看到自己的博客啦！4不4SoEZ"><span class="nav-number">10.</span> <span class="nav-text">九 进入yangzongjie.github.io就可以看到自己的博客啦！4不4SoEZ</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HiJack</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

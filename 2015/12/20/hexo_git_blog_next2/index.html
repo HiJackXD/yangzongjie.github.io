@@ -1,0 +1,680 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="教程,hexo,NexT,blog," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一. 编写并发布博文(以macdown为例)
+打开macdown,commadn+N,填写标题,分类,标签信息,日期可选  
+title: hexo博客布局及文章发布
+date: 2015-12-20 11:00:00 
+categories: 软件及网络应用
+tags: [hexo,NexT,blog,教程] 
+
+---   
+
+编写博文  
+  
+
+终端进入本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo搭建github博客(NexT主题)(二)">
+<meta property="og:url" content="http://yoursite.com/2015/12/20/hexo_git_blog_next2/index.html">
+<meta property="og:site_name" content="八月份的前奏">
+<meta property="og:description" content="一. 编写并发布博文(以macdown为例)
+打开macdown,commadn+N,填写标题,分类,标签信息,日期可选  
+title: hexo博客布局及文章发布
+date: 2015-12-20 11:00:00 
+categories: 软件及网络应用
+tags: [hexo,NexT,blog,教程] 
+
+---   
+
+编写博文  
+  
+
+终端进入本">
+<meta property="og:image" content="http://yoursite.com/images/QQ20151220-1.png">
+<meta property="og:updated_time" content="2016-08-05T06:59:28.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo搭建github博客(NexT主题)(二)">
+<meta name="twitter:description" content="一. 编写并发布博文(以macdown为例)
+打开macdown,commadn+N,填写标题,分类,标签信息,日期可选  
+title: hexo博客布局及文章发布
+date: 2015-12-20 11:00:00 
+categories: 软件及网络应用
+tags: [hexo,NexT,blog,教程] 
+
+---   
+
+编写博文  
+  
+
+终端进入本">
+<meta name="twitter:image" content="http://yoursite.com/images/QQ20151220-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/12/20/hexo_git_blog_next2/"/>
+
+  <title> hexo搭建github博客(NexT主题)(二) | 八月份的前奏 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">八月份的前奏</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">曾经沧海难为水，除却巫山不是云</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                hexo搭建github博客(NexT主题)(二)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-20T12:00:00+08:00" content="2015-12-20">
+              2015-12-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/软件及网络应用/" itemprop="url" rel="index">
+                    <span itemprop="name">软件及网络应用</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一-编写并发布博文-以macdown为例"><a href="#一-编写并发布博文-以macdown为例" class="headerlink" title="一. 编写并发布博文(以macdown为例)"></a>一. 编写并发布博文(以macdown为例)</h4><ol>
+<li><p>打开macdown,commadn+N,填写标题,分类,标签信息,日期可选  </p>
+<pre><code>title: hexo博客布局及文章发布
+date: 2015-12-20 11:00:00 
+categories: 软件及网络应用
+tags: [hexo,NexT,blog,教程] 
+
+---   
+</code></pre></li>
+<li><p>编写博文  </p>
+<p><img src="/images/QQ20151220-1.png" alt="markdownHelp">  </p>
+</li>
+<li><p>终端进入本 <a id="more"></a> 地博客目录  </p>
+<pre><code>$ cd ~/Develop/yangzongjie.github.io  
+</code></pre></li>
+<li><p>部署至github  </p>
+<pre><code>$ hexo g -d  
+</code></pre><p>  <em>每一行尾至少接2个空格,回车后才能换行</em>  (关于markdown语法,可参考macdown的help文件)</p>
+</li>
+</ol>
+<h4 id="二-hexo主要文件系统"><a href="#二-hexo主要文件系统" class="headerlink" title="二 hexo主要文件系统"></a>二 hexo主要文件系统</h4><ol>
+<li><code>/yangzongjie.github.io/_config.yml</code>  站点配置文件 </li>
+<li><code>/yangzongjie.github.io/theme/_config.yml</code>主题配置文件    </li>
+<li><code>/yangzongjie.github.io/source/_posts</code> 博文存放路径(.md,推荐用<a href="http://macdown.uranusjr.com/" target="_blank" rel="external">macdown</a>或<a href="http://25.io/mou/" target="_blank" rel="external">mou</a>编写)  </li>
+</ol>
+<!-- more --> 
+<h4 id="三-设置博客外观-头像-栏目-社交链接-评论等第三方服务"><a href="#三-设置博客外观-头像-栏目-社交链接-评论等第三方服务" class="headerlink" title="三. 设置博客外观(头像,栏目,社交链接,评论等第三方服务)"></a>三. 设置博客外观(头像,栏目,社交链接,评论等第三方服务)</h4><ol>
+<li><p>设置方法参考 NexT官方文档<br><a href="http://theme-next.iissnan.com/five-minutes-setup.html" target="_blank" rel="external">http://theme-next.iissnan.com/five-minutes-setup.html</a><br><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">http://theme-next.iissnan.com/theme-settings.html</a></p>
+</li>
+<li><p>icon及名称目录:<a href="https://icomoon.io/#preview-essential" target="_blank" rel="external">https://icomoon.io/#preview-essential</a></p>
+</li>
+<li><p>显示”阅读更多”,在相应文本处添加<code>&lt;!-- more --&gt;</code>.</p>
+</li>
+</ol>
+<h4 id="四-文章插入图片-视频"><a href="#四-文章插入图片-视频" class="headerlink" title="四. 文章插入图片|视频"></a>四. 文章插入图片|视频</h4><ol>
+<li><p>插入本地图片(md语法):  <code>![](/images/**.png)</code>   </p>
+<blockquote>
+<p>图片保存路径:<code>/yangzongjie.github.io/source/images</code>,需手动创建.   </p>
+</blockquote>
+</li>
+<li><p>插入视频  </p>
+</li>
+</ol>
+<ul>
+<li>方法1: html5播放器  </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">video</span> <span class="attr">width</span>=<span class="string">"640"</span> <span class="attr">height</span>=<span class="string">"480"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">controls</span> <span class="attr">preload</span> &gt;</span></div><div class="line">	  <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"http://XXXX.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">video</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">html</span>&gt;</span></div><div class="line">	</div><div class="line">// controls(显示控件)</div><div class="line">// preload（预加载）</div><div class="line">// autuplay （自动播放）</div></pre></td></tr></table></figure>
+<ul>
+<li><p>方法2: 链接youku,b站视频分享中的html地址.  </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">embed</span> <span class="attr">height</span>=<span class="string">"348"</span> <span class="attr">width</span>=<span class="string">"550"</span> <span class="attr">class</span>=<span class="string">"player"</span> <span class="attr">allowFullScreenInteractive</span>=<span class="string">"true"</span> <span class="attr">pluginspage</span>=<span class="string">"http://www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"</span> <span class="attr">AllowScriptAccess</span>=<span class="string">"always"</span> <span class="attr">rel</span>=<span class="string">"noreferrer"</span> <span class="attr">flashvars</span>=<span class="string">"type=page&amp;url=http://www.acfun.tv/v/ac1572372"</span> <span class="attr">src</span>=<span class="string">"http://cdn.aixifan.com/player/ACFlashPlayer.out.swf"</span> <span class="attr">type</span>=<span class="string">"application/x-shockwave-flash"</span> <span class="attr">allowfullscreen</span>=<span class="string">"true"</span> <span class="attr">quality</span>=<span class="string">"high"</span> <span class="attr">wmode</span>=<span class="string">"window"</span>&gt;</span><span class="tag">&lt;/<span class="name">embed</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/教程/" rel="tag">#教程</a>
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+            <a href="/tags/NexT/" rel="tag">#NexT</a>
+          
+            <a href="/tags/blog/" rel="tag">#blog</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/19/hexo_git_blog_next1/" rel="next" title="hexo搭建github博客(NexT主题)(一)">
+                <i class="fa fa-chevron-left"></i> hexo搭建github博客(NexT主题)(一)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/20/git_command/" rel="prev" title="Git常用命令">
+                Git常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/12136689?v=3&s=460"
+               alt="HiJack" />
+          <p class="site-author-name" itemprop="name">HiJack</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-编写并发布博文-以macdown为例"><span class="nav-number">1.</span> <span class="nav-text">一. 编写并发布博文(以macdown为例)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-hexo主要文件系统"><span class="nav-number">2.</span> <span class="nav-text">二 hexo主要文件系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三-设置博客外观-头像-栏目-社交链接-评论等第三方服务"><span class="nav-number">3.</span> <span class="nav-text">三. 设置博客外观(头像,栏目,社交链接,评论等第三方服务)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四-文章插入图片-视频"><span class="nav-number">4.</span> <span class="nav-text">四. 文章插入图片|视频</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HiJack</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,640 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="文件下载," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="小文件下载
+[NSData dataWithContensOfURL:url];
+
+[NSURLConnection sendAsynchronousRequest:reques queue:[NSOperationQueue mainQueue] conmpletionHandler:^...
+
+
+大文件下载####方案：利用NSURLConnection和它的代理方法    
+
+发送一个请求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件下载">
+<meta property="og:url" content="http://yoursite.com/2015/12/29/ios_download/index.html">
+<meta property="og:site_name" content="八月份的前奏">
+<meta property="og:description" content="小文件下载
+[NSData dataWithContensOfURL:url];
+
+[NSURLConnection sendAsynchronousRequest:reques queue:[NSOperationQueue mainQueue] conmpletionHandler:^...
+
+
+大文件下载####方案：利用NSURLConnection和它的代理方法    
+
+发送一个请求">
+<meta property="og:updated_time" content="2016-08-05T06:59:28.730Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="文件下载">
+<meta name="twitter:description" content="小文件下载
+[NSData dataWithContensOfURL:url];
+
+[NSURLConnection sendAsynchronousRequest:reques queue:[NSOperationQueue mainQueue] conmpletionHandler:^...
+
+
+大文件下载####方案：利用NSURLConnection和它的代理方法    
+
+发送一个请求">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/12/29/ios_download/"/>
+
+  <title> 文件下载 | 八月份的前奏 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">八月份的前奏</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">曾经沧海难为水，除却巫山不是云</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                文件下载
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-29T22:30:00+08:00" content="2015-12-29">
+              2015-12-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="小文件下载"><a href="#小文件下载" class="headerlink" title="小文件下载"></a>小文件下载</h2><ul>
+<li><p><code>[NSData dataWithContensOfURL:url];</code></p>
+</li>
+<li><p><code>[NSURLConnection sendAsynchronousRequest:reques queue:[NSOperationQueue mainQueue] conmpletionHandler:^...</code></p>
+</li>
+</ul>
+<h2 id="大文件下载"><a href="#大文件下载" class="headerlink" title="大文件下载"></a>大文件下载</h2><p>####方案：利用NSURLConnection和它的代理方法    </p>
+<ol>
+<li><p>发送一个请求    </p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1.URL</span></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://localhost:8080/MJServer/resources/videos.zip"</span>];</div><div class="line"><span class="comment">// 2.请求</span></div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line"><span class="comment">// 3.下载(创建完conn对象后，会自动发起一个异步请求)</span></div><div class="line">[<span class="built_in">NSURLConnection</span> connectionWithRequest:request delegate:<span class="keyword">self</span>];</div></pre></td></tr></table></figure>
+</li>
+<li><p>在代理方法中处理服务器返回的数据</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> 在接收到服务器的响应时：</div><div class="line"> 1.创建一个空的文件</div><div class="line"> 2.用一个句柄对象关联这个空的文件，目的是：方便后面用句柄对象往文件后面写数据</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveResponse:(<span class="built_in">NSURLResponse</span> *)response</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 文件路径</span></div><div class="line">    <span class="built_in">NSString</span> *caches = [<span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>) lastObject];</div><div class="line">    <span class="built_in">NSString</span> *filepath = [caches stringByAppendingPathComponent:<span class="string">@"videos.zip"</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 创建一个空的文件 到 沙盒中</span></div><div class="line">    <span class="built_in">NSFileManager</span> *mgr = [<span class="built_in">NSFileManager</span> defaultManager];</div><div class="line">    [mgr createFileAtPath:filepath contents:<span class="literal">nil</span> attributes:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 创建一个用来写数据的文件句柄</span></div><div class="line">    <span class="keyword">self</span>.writeHandle = [<span class="built_in">NSFileHandle</span> fileHandleForWritingAtPath:filepath];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> 在接收到服务器返回的文件数据时，利用句柄对象往文件的最后面追加数据</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)connection:(<span class="built_in">NSURLConnection</span> *)connection didReceiveData:(<span class="built_in">NSData</span> *)data</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 移动到文件的最后面</span></div><div class="line">    [<span class="keyword">self</span>.writeHandle seekToEndOfFile];</div><div class="line">    </div><div class="line">    <span class="comment">// 将数据写入沙盒</span></div><div class="line">    [<span class="keyword">self</span>.writeHandle writeData:data];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> 在所有数据接收完毕时，关闭句柄对象</div><div class="line"> */</div><div class="line">- (<span class="keyword">void</span>)connectionDidFinishLoading:(<span class="built_in">NSURLConnection</span> *)connection</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 关闭文件</span></div><div class="line">    [<span class="keyword">self</span>.writeHandle closeFile];</div><div class="line">    <span class="keyword">self</span>.writeHandle = <span class="literal">nil</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意点：千万不能用NSMutableData来拼接服务器返回的数据</p>
+</blockquote>
+</li>
+</ol>
+<h5 id="NSURLConnection发送异步请求的方法"><a href="#NSURLConnection发送异步请求的方法" class="headerlink" title="NSURLConnection发送异步请求的方法"></a>NSURLConnection发送异步请求的方法</h5><p>1.block形式 - 除开大文件下载以外的操作，都可以用这种形式</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:&lt;<span class="meta">#(NSURLRequest *)#&gt; queue:<span class="meta-string">&lt;#(NSOperationQueue *)#&gt;</span> completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) &#123;</span></div><div class="line">    </div><div class="line">&#125;];</div><div class="line">```	</div><div class="line"></div><div class="line"></div><div class="line"><span class="number">2.</span>代理形式 - 一般用在大文件下载</div><div class="line"></div><div class="line">```objc</div><div class="line"><span class="comment">// 1.URL</span></div><div class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://localhost:8080/MJServer/login?username=123&amp;pwd=123"</span>];</div><div class="line"><span class="comment">// 2.请求</span></div><div class="line"><span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</div><div class="line"><span class="comment">// 3.下载(创建完conn对象后，会自动发起一个异步请求)</span></div><div class="line">[<span class="built_in">NSURLConnection</span> connectionWithRequest:request delegate:<span class="keyword">self</span>];</div></pre></td></tr></table></figure>
+<h2 id="断点续传xxx"><a href="#断点续传xxx" class="headerlink" title="断点续传xxx"></a>断点续传xxx</h2><h2 id="NSURLSession"><a href="#NSURLSession" class="headerlink" title="NSURLSession"></a>NSURLSession</h2><p>iOS7推出,目的为了取代NSURLConnection<br>1.使用步骤<br>1&gt; 获得NSURLSession对象<br>2&gt; 利用NSURLSession对象创建对应的任务（Task）<br>3&gt; 开始任务（[task resume]）    </p>
+<p>2.获得NSURLSession对象<br>1&gt; [NSURLSession sharedSession]<br>2&gt;<br>NSURLSessionConfiguration *cfg = [NSURLSessionConfiguration defaultSessionConfiguration];<br>self.session = [NSURLSession sessionWithConfiguration:cfg delegate:self delegateQueue:   [NSOperationQueue mainQueue]];   </p>
+<p>3.任务类型<br>1&gt; NSURLSessionDataTask   </p>
+<ul>
+<li>用途：用于非文件下载的GET\POST请求<br>NSURLSessionDataTask <em>task = [self.session dataTaskWithRequest:request];<br>NSURLSessionDataTask </em>task = [self.session dataTaskWithURL:url];<br>NSURLSessionDataTask <em>task = [self.session dataTaskWithURL:url completionHandler:\^(NSData </em>data,     NSURLResponse <em>response, NSError </em>error) {     </li>
+</ul>
+<p>}];   </p>
+<p>2&gt; NSURLSessionDownloadTask   </p>
+<ul>
+<li>用途：用于文件下载（小文件、大文件）<br>NSURLSessionDownloadTask <em>task = [self.session downloadTaskWithRequest:request];<br>NSURLSessionDownloadTask </em>task = [self.session downloadTaskWithURL:url];<br>NSURLSessionDownloadTask <em>task = [self.session downloadTaskWithURL:url completionHandler:^(NSURL     </em>location, NSURLResponse <em>response, NSError </em>error) {   </li>
+</ul>
+<p>}];   </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/文件下载/" rel="tag">#文件下载</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/28/wangluoqingqiuyushujujiexi/" rel="next" title="网络通信">
+                <i class="fa fa-chevron-left"></i> 网络通信
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/30/AFN/" rel="prev" title="AFNetworking3.0">
+                AFNetworking3.0 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars0.githubusercontent.com/u/12136689?v=3&s=460"
+               alt="HiJack" />
+          <p class="site-author-name" itemprop="name">HiJack</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#小文件下载"><span class="nav-number">1.</span> <span class="nav-text">小文件下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大文件下载"><span class="nav-number">2.</span> <span class="nav-text">大文件下载</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NSURLConnection发送异步请求的方法"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">NSURLConnection发送异步请求的方法</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断点续传xxx"><span class="nav-number">3.</span> <span class="nav-text">断点续传xxx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSURLSession"><span class="nav-number">4.</span> <span class="nav-text">NSURLSession</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HiJack</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
