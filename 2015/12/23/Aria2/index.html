@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>下载利器Aria2 | 八月份的前奏</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Aria2：是一个命令行下运行、多协议、多来源下载工具（支持HTTP/HTTPS、FTP、BitTorrent、Metalink协议）主要特性:占用资源极低、全速下载推荐理由：
+
+1 OS X无百度网盘客户端2 可保持全速下载（与IDM相似）3 openWRT路由器可直接搭载，实现远程路由下载。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="下载利器Aria2">
+<meta property="og:url" content="http://yoursite.com/2015/12/23/Aria2/index.html">
+<meta property="og:site_name" content="八月份的前奏">
+<meta property="og:description" content="Aria2：是一个命令行下运行、多协议、多来源下载工具（支持HTTP/HTTPS、FTP、BitTorrent、Metalink协议）主要特性:占用资源极低、全速下载推荐理由：
+
+1 OS X无百度网盘客户端2 可保持全速下载（与IDM相似）3 openWRT路由器可直接搭载，实现远程路由下载。">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程01.png">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程02.png">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程07.png">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程08.png">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程03.png">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程04.png">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程05.png">
+<meta property="og:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程06.png">
+<meta property="og:updated_time" content="2016-08-05T06:59:26.137Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="下载利器Aria2">
+<meta name="twitter:description" content="Aria2：是一个命令行下运行、多协议、多来源下载工具（支持HTTP/HTTPS、FTP、BitTorrent、Metalink协议）主要特性:占用资源极低、全速下载推荐理由：
+
+1 OS X无百度网盘客户端2 可保持全速下载（与IDM相似）3 openWRT路由器可直接搭载，实现远程路由下载。">
+<meta name="twitter:image" content="http://yoursite.com/images/Mac下使用Aria2下载教程01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="八月份的前奏" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">八月份的前奏</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">曾经沧海难为水，除却巫山不是云</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Aria2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/12/23/Aria2/" class="article-date">
+  <time datetime="2015-12-23T11:00:00.000Z" itemprop="datePublished">2015-12-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/软件及网络应用/">软件及网络应用</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      下载利器Aria2
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Aria2：是一个命令行下运行、多协议、多来源下载工具（支持HTTP/HTTPS、FTP、BitTorrent、Metalink协议）<br>主要特性:占用资源极低、全速下载<br>推荐理由：</p>
+<blockquote>
+<p>1 OS X无百度网盘客户端<br>2 可保持全速下载（与IDM相似）<br>3 openWRT路由器可直接搭载，实现远程路由下载。</p>
+</blockquote>
+</blockquote>
+<a id="more"></a>
+<h2 id="一、安装Aria2"><a href="#一、安装Aria2" class="headerlink" title="一、安装Aria2"></a>一、安装Aria2</h2><p><a href="https://github.com/tatsuhiro-t/aria2/releases/" target="_blank" rel="external">下载地址</a>,安装后应用不会出现在application目录,而是安装在<code>/usr/local/aria2</code>下.</p>
+<h2 id="二、添加配置文件-aria2-conf"><a href="#二、添加配置文件-aria2-conf" class="headerlink" title="二、添加配置文件(aria2.conf)"></a>二、添加配置文件(aria2.conf)</h2><ul>
+<li>打开终端,新建Aria2配置文件存放目录<code>.aira2</code></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir ~/.aria2</div></pre></td></tr></table></figure>
+<ul>
+<li>下载配置文件<a href="/source/aria2.conf">aria2.conf</a>(右键另存为),放到<code>/Users/HiJack/.aira2</code>目录下(HiJack是我本机用户名,请自行修改)</li>
+<li>修改存放路径:用<code>文本编辑器</code>打开<code>aria2.conf</code>,将<code>dir=/Users/HiJack/Downloads</code>修改为所需路径.</li>
+</ul>
+<h2 id="三、运行Aria2"><a href="#三、运行Aria2" class="headerlink" title="三、运行Aria2"></a>三、运行Aria2</h2><ul>
+<li>终端输入</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aria2c</div></pre></td></tr></table></figure>
+<ul>
+<li>查看aria2c是否启动</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux|grep aria2c</div></pre></td></tr></table></figure>
+<p><img src="/images/Mac下使用Aria2下载教程01.png" alt=""><br>出现图片结果表示成功</p>
+<h2 id="四、打开网页界面"><a href="#四、打开网页界面" class="headerlink" title="四、打开网页界面"></a>四、打开网页界面</h2><p>点击:<a href="http://webui-aria2.ghostry.cn" target="_blank" rel="external">webUI-Aria2</a><br><img src="/images/Mac下使用Aria2下载教程02.png" alt=""><br>出现图示信息表示连接成功  </p>
+<blockquote>
+<p>该网页内可以对全局配置及单个任务配置进行设置(如保存路径、同时下载数、最大下载速度)。</p>
+</blockquote>
+<h2 id="五、下载chrome插件-BaiduExporter"><a href="#五、下载chrome插件-BaiduExporter" class="headerlink" title="五、下载chrome插件 BaiduExporter"></a>五、下载chrome插件 BaiduExporter</h2><p>点击下载并安装:<a href="https://chrome.google.com/webstore/detail/baiduexporter/mjaenbjdjmgolhoafkohbhhbaiedbkno" target="_blank" rel="external">BaiduExporter</a></p>
+<blockquote>
+<p>（可选）下载并安装<a href="https://chrome.google.com/webstore/detail/aria2c-integration/edcakfpjaobkpdfpicldlccdffkhpbfk" target="_blank" rel="external">Aria2c Integration</a> .  </p>
+<blockquote>
+<p>提供右键下载选项<br><img src="/images/Mac下使用Aria2下载教程07.png" alt=""><br>单击扩展栏提供状态显示<br><img src="/images/Mac下使用Aria2下载教程08.png" alt=""> </p>
+</blockquote>
+</blockquote>
+<hr>
+<h2 id="六、下载百度网盘文件"><a href="#六、下载百度网盘文件" class="headerlink" title="六、下载百度网盘文件"></a>六、下载百度网盘文件</h2><blockquote>
+<p>至此Aria2环境配置完毕,以后下载文件只需进行第六步.  </p>
+</blockquote>
+<ul>
+<li>进入<a href="http://pan.baidu.com/" target="_blank" rel="external">百度网盘</a>;</li>
+<li>勾选需要下载的文件或文件夹后,点击<code>导出下载</code>-<code>ARIA2 RPC</code>.便自动后台下载（此时可关闭游览器）<br><img src="/images/Mac下使用Aria2下载教程03.png" alt=""> </li>
+<li><p>若需查看下载进度,进入<a href="http://webui-aria2.ghostry.cn/" target="_blank" rel="external">webUI-Aria2</a> 或单击<code>Aria2c Integration</code>扩展<br><img src="/images/Mac下使用Aria2下载教程04.png" alt=""> </p>
+<hr>
+</li>
+</ul>
+<h2 id="七、资源占用"><a href="#七、资源占用" class="headerlink" title="七、资源占用"></a>七、资源占用</h2><p>下载是在后台进行,故在百度网盘里添加<code>ARIA2 PPC</code>下载后,游览器可直接关闭.所以占用资源极少.  </p>
+<ul>
+<li><p>CPU占用<br><img src="/images/Mac下使用Aria2下载教程05.png" alt="">   </p>
+</li>
+<li><p>内存占用<br><img src="/images/Mac下使用Aria2下载教程06.png" alt=""> </p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/12/23/Aria2/" data-id="cirhfrwil000c6wtqhxn8axj4" class="article-share-link">Delen</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/software/">software</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/24/threads/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nieuwer</strong>
+      <div class="article-nav-title">
+        
+          线程编程与并发编程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/22/Block/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">block基础</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categorieën</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Entertanment/">Entertanment</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/iOS开发/">iOS开发</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我到底该以怎样的姿势吐槽/">我到底该以怎样的姿势吐槽</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件及网络应用/">软件及网络应用</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Labels</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NexT/">NexT</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/block/">block</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios/">ios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/multithreading/">multithreading</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/popover/">popover</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/software/">software</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/吐了个槽/">吐了个槽</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微博/">微博</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/文件下载/">文件下载</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/NexT/" style="font-size: 15px;">NexT</a> <a href="/tags/block/" style="font-size: 10px;">block</a> <a href="/tags/blog/" style="font-size: 15px;">blog</a> <a href="/tags/c/" style="font-size: 10px;">c</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/multithreading/" style="font-size: 10px;">multithreading</a> <a href="/tags/popover/" style="font-size: 10px;">popover</a> <a href="/tags/software/" style="font-size: 15px;">software</a> <a href="/tags/吐了个槽/" style="font-size: 20px;">吐了个槽</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a> <a href="/tags/微博/" style="font-size: 10px;">微博</a> <a href="/tags/教程/" style="font-size: 20px;">教程</a> <a href="/tags/文件下载/" style="font-size: 10px;">文件下载</a> <a href="/tags/网络/" style="font-size: 15px;">网络</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/05/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/04/UIpopoverPresentationController/">(iOS8新特性)利用UIPopoverPresentationController创建popover</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/01/weibo2/">微博项目总结(二)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/01/weibo1/">微博项目总结(一)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/AFN/">AFNetworking3.0</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 HiJack<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
